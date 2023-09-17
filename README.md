@@ -6,11 +6,9 @@ This is a bot which is WIP as of this moment.
 Feel free to add new features to this :D.
 
 - To test the bot:
-```
-Create a discord bot in your discord developer's portal [link](https://discord.com/developers/applications)
-Add it in a .env file (Refer sample.env)
-Run the following command: cargo run
-```
+1. Create a discord bot in your discord developer's portal [link](https://discord.com/developers/applications)
+2. Add it in a .env file (Refer sample.env)
+3. Run the following command: cargo run
 
 - To Add in your bot:
 ```
