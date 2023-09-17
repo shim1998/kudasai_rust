@@ -50,7 +50,7 @@ impl EventHandler for Handler {
 }
 
 #[group]
-#[commands(multiply, ping, quit, fetch_data, add_user)]
+#[commands(multiply, ping, quit, fetch_data, user)]
 struct General;
 
 #[tokio::main]
