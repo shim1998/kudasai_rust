@@ -12,3 +12,8 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+.vs\
+
+# Not push F1 DB and data
+sqlite/f1.db
+sqlite/ddl.sql
