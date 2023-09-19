@@ -9,6 +9,7 @@
 //! features = ["framework", "standard_framework"]
 //! ```
 mod commands;
+mod formulabot;
 
 use std::collections::HashSet;
 use std::env;
@@ -27,6 +28,7 @@ use tracing::{error, info};
 use crate::commands::math::*;
 use crate::commands::meta::*;
 use crate::commands::owner::*;
+use crate::commands::f1_predictor::*;
 
 pub struct ShardManagerContainer;
 
@@ -48,7 +50,7 @@ impl EventHandler for Handler {
 }
 
 #[group]
-#[commands(multiply, ping, quit)]
+#[commands(multiply, ping, quit, fetch_data, user)]
 struct General;
 
 #[tokio::main]
@@ -63,7 +65,6 @@ async fn main() {
     // `RUST_LOG` to `debug`.
     tracing_subscriber::fmt::init();
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
-
     let http = Http::new(&token);
 
     // We will fetch your bot's owners and id
