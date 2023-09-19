@@ -65,7 +65,6 @@ async fn main() {
     // `RUST_LOG` to `debug`.
     tracing_subscriber::fmt::init();
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
-
     let http = Http::new(&token);
 
     // We will fetch your bot's owners and id

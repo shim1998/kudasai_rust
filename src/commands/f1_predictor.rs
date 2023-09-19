@@ -23,7 +23,7 @@ async fn user(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let author_id = &msg.author.id.to_string();
     let res = db::modify_user(&action, &db_name,&author_name,&author_id);
     match res {
-        Ok(_) => msg.channel_id.say(&ctx.http, format!("Added user {}",msg.author)).await?,
+        Ok(res) => msg.channel_id.say(&ctx.http, format!("{} user {}",res,msg.author)).await?,
         Err(e) => msg.channel_id.say(&ctx.http, format!("{}",e)).await?,
     };
     Ok(())

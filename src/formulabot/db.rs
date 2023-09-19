@@ -13,7 +13,7 @@ pub fn fetch_data(db_name:&str,table_name:&str) {
     .unwrap();
 }
 
-pub fn modify_user<'a>(action:&'a str,db_name:&'a str,user_name:&'a str,user_id:&'a str) -> Result<(),&'a str>{
+pub fn modify_user<'a>(action:&'a str,db_name:&'a str,user_name:&'a str,user_id:&'a str) -> Result<&'a str,&'a str>{
     let connection = sqlite::open(db_name).unwrap();
     let query = format!("SELECT COUNT(*) FROM users WHERE client_id={};",user_id);
     let mut flag=1;
@@ -35,16 +35,16 @@ pub fn modify_user<'a>(action:&'a str,db_name:&'a str,user_name:&'a str,user_id:
         Err(e) => error!("Error executing statement: {}",e),
         _ => info!("Executed successfully")
         };
-        Ok(())
+        Ok("Added")
     } else if action == "delete" {
         let delete_statement = format!("DELETE FROM users WHERE client_id={}",user_id);
         match connection.execute(delete_statement){
         Err(e) => error!("Error executing statement: {}",e),
         _ => info!("Executed successfully")
         };
-        Ok(())
+        Ok("Deleted")
     }
     else {
-        return Err("Wrong action")
+        Err("Wrong action")
     }
 }
