@@ -8,14 +8,12 @@ Feel free to add new features to this :D.
 - To test the bot:
 1. Create a discord bot in your discord developer's portal [link](https://discord.com/developers/applications)
 2. Add it in a .env file (Refer sample.env)
-3. Run the following command: cargo run
+3. Run the following commands: 
+	```
+	git clone https://github.com/shim1998/kudasai_rust
+	cd kudasai_rust
+	cargo run
+	```
+4. Bot prefix as of now is `~`
 
-- To Add in your bot:
-```
-Make a new branch in github
-To make a bot command
-Add your code in `src/commands/<bot_command>.rs`
-Add the module name in `src/commands/mod.rs`
-Raise a valid MR
-I will review and merge it
-```
+- To Add in your bot command, please refer to this [sample Pull Request](https://github.com/shim1998/kudasai_rust/pull/5)
